@@ -12,6 +12,7 @@ import {
     TextField
 } from "@mui/material";
 import {useNavigate, useParams} from "react-router-dom";
+import * as React from "react";
 
 
 type UpdateDialogProps = {
@@ -65,7 +66,7 @@ export default function UpdateDialog(props: UpdateDialogProps) {
         )
     };
 
-    const handleTextChange = (event) => {
+    const handleTextChange = (event:React.ChangeEvent<HTMLInputElement>) => {
         setItem(
             {
                 ...item,
