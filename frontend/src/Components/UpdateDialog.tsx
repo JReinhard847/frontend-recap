@@ -22,7 +22,7 @@ type UpdateDialogProps = {
 
 export default function UpdateDialog(props: UpdateDialogProps) {
 
-    const [item, setItem] = useState<ToDoItem>({
+    const [itemToUpdate, setItemToUpdate] = useState<ToDoItem>({
         id: "",
         description: "",
         status: "OPEN"
@@ -30,15 +30,15 @@ export default function UpdateDialog(props: UpdateDialogProps) {
     const params = useParams()
     const navigate = useNavigate()
 
-    async function getData() {
+    async function fetchItemInformation() {
         await axios.get<ToDoItem>("api/todo/" + params.id)
-            .then(response => setItem(response.data))
+            .then(response => setItemToUpdate(response.data))
             .catch(err => console.log(err))
     }
 
 
     useEffect(() => {
-        getData()
+        fetchItemInformation()
     }, []);
 
 
@@ -50,7 +50,7 @@ export default function UpdateDialog(props: UpdateDialogProps) {
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            await axios.put("api/todo/" + item.id + "/update", item);
+            await axios.put("api/todo/" + itemToUpdate.id + "/update", itemToUpdate);
         } catch (err) {
             console.error(err);
         } finally {
@@ -59,18 +59,18 @@ export default function UpdateDialog(props: UpdateDialogProps) {
     };
 
     const handleChange = (event: SelectChangeEvent) => {
-        setItem(
+        setItemToUpdate(
             {
-                ...item,
+                ...itemToUpdate,
                 status: event.target.value as "OPEN" | "IN_PROGRESS" | "DONE"
             }
         )
     };
 
     const handleTextChange = (event:ChangeEvent<HTMLInputElement>) => {
-        setItem(
+        setItemToUpdate(
             {
-                ...item,
+                ...itemToUpdate,
                 description: event.target.value
             }
         )
@@ -105,7 +105,7 @@ export default function UpdateDialog(props: UpdateDialogProps) {
                     multiline={true}
                     minRows={3}
                     maxRows={6}
-                    defaultValue={item.description}
+                    defaultValue={itemToUpdate.description}
                     onChange={handleTextChange}
                 />
                 <Select
@@ -120,11 +120,11 @@ export default function UpdateDialog(props: UpdateDialogProps) {
                     }}
                     labelId="status"
                     id="status"
-                    value={item.status}
+                    value={itemToUpdate.status}
                     label="Age"
                     onChange={handleChange}
                     variant='filled'
-                    defaultValue={item.status}
+                    defaultValue={itemToUpdate.status}
                 >
                     <MenuItem value={"OPEN"}>Open</MenuItem>
                     <MenuItem value={"IN_PROGRESS"}>In Progress</MenuItem>
