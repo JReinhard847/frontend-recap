@@ -99,7 +99,7 @@ export default function UpdateDialog(props: UpdateDialogProps) {
                     label="Description"
                     type="text"
                     fullWidth
-                    variant="standard"
+                    variant="filled"
                     multiline={true}
                     minRows={3}
                     maxRows={6}

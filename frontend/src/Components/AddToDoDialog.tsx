@@ -61,10 +61,10 @@ export default function AddToDoDialog(props: AddToDoDialogProps) {
                 onSubmit: handleSubmit,
             }}
         >
-            <DialogTitle>Add a new ToDO</DialogTitle>
+            <DialogTitle>Add a new ToDo</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    To add a new ToDO please enter it's description and starting status
+                    To add a new ToDo please enter it's description and starting status
                 </DialogContentText>
                 <TextField
                     autoFocus
@@ -75,7 +75,7 @@ export default function AddToDoDialog(props: AddToDoDialogProps) {
                     label="Description"
                     type="text"
                     fullWidth
-                    variant="standard"
+                    variant="filled"
                     multiline={true}
                     minRows={3}
                     maxRows={6}
