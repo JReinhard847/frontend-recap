@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Paper, Typography, Box, Fab} from "@mui/material";
+import {Box, Fab, Paper, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import NavigateBeforeRoundedIcon from '@mui/icons-material/NavigateBeforeRounded';

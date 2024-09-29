@@ -2,7 +2,7 @@ import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 
 
-import {ThemeProvider, createTheme, Theme} from '@mui/material/'
+import {createTheme, Theme, ThemeProvider} from '@mui/material/'
 import CssBaseline from '@mui/material/CssBaseline';
 import {BrowserRouter} from "react-router-dom";
 import App from "./App.tsx";

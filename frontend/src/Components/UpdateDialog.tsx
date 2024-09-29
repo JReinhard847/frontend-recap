@@ -1,18 +1,19 @@
-import {FormEvent, useEffect, useState} from "react";
+import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {ToDoItem} from "./ToDoCard.tsx";
 import axios from "axios";
 import {
     Button,
-    Dialog, DialogActions,
+    Dialog,
+    DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle, MenuItem,
+    DialogTitle,
+    MenuItem,
     Select,
     SelectChangeEvent,
     TextField
 } from "@mui/material";
 import {useNavigate, useParams} from "react-router-dom";
-import * as React from "react";
 
 
 type UpdateDialogProps = {
@@ -66,7 +67,7 @@ export default function UpdateDialog(props: UpdateDialogProps) {
         )
     };
 
-    const handleTextChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    const handleTextChange = (event:ChangeEvent<HTMLInputElement>) => {
         setItem(
             {
                 ...item,
